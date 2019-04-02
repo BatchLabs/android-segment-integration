@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 28
         versionCode 1
         versionName "2.0.2"
 
@@ -25,25 +25,25 @@ def powerMockVersion = "1.6.4"
 def segmentAnalyticsVersion = "4.3.0-RC1"
 
 dependencies {
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    provided "com.segment.analytics.android:analytics:$segmentAnalyticsVersion"
-    testCompile "com.segment.analytics.android:analytics-tests:$segmentAnalyticsVersion"
+    compileOnly "com.segment.analytics.android:analytics:$segmentAnalyticsVersion"
+    compileOnly "com.segment.analytics.android:analytics-tests:$segmentAnalyticsVersion"
 
-    compile 'com.batch.android:batch-sdk:1.9.2'
-    provided 'com.google.android.gms:play-services-base:10.2.4'
-    provided 'com.google.android.gms:play-services-gcm:10.2.4'
-    provided 'com.google.android.gms:play-services-ads:10.2.4'
+    api 'com.batch.android:batch-sdk:1.13.0'
+    compileOnly 'com.google.android.gms:play-services-base:10.2.4'
+    compileOnly 'com.google.android.gms:play-services-gcm:10.2.4'
+    compileOnly 'com.google.android.gms:play-services-ads:10.2.4'
 
-    testCompile 'junit:junit:4.12'
-    testCompile "org.robolectric:robolectric:3.3.2"
-    testCompile "org.powermock:powermock:$powerMockVersion"
-    testCompile "org.powermock:powermock-module-junit4:$powerMockVersion"
-    testCompile "org.powermock:powermock-module-junit4-rule:$powerMockVersion"
-    testCompile "org.powermock:powermock-api-mockito:$powerMockVersion"
-    testCompile "org.powermock:powermock-classloading-xstream:$powerMockVersion"
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.robolectric:robolectric:3.3.2"
+    testImplementation "org.powermock:powermock:$powerMockVersion"
+    testImplementation "org.powermock:powermock-module-junit4:$powerMockVersion"
+    testImplementation "org.powermock:powermock-module-junit4-rule:$powerMockVersion"
+    testImplementation "org.powermock:powermock-api-mockito:$powerMockVersion"
+    testImplementation "org.powermock:powermock-classloading-xstream:$powerMockVersion"
 }
 
 apply from: 'maven.gradle'
