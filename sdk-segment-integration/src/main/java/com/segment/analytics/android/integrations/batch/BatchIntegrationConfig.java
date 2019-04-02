@@ -9,7 +9,6 @@ public class BatchIntegrationConfig
     private static final String PREFERENCES_NAME = "batchSegmentPreferences";
 
     public static final String APIKEY_KEY = "apiKey";
-    public static final String GCM_SENDER_ID_KEY = "gcmSenderID";
     public static final String CAN_USE_ADVERTISING_ID_KEY = "canUseAdvertisingID";
     public static final String CAN_USE_ADVANCED_DEVICE_INFO_KEY = "canUseAdvancedDeviceInformation";
 
@@ -19,7 +18,6 @@ public class BatchIntegrationConfig
     public static boolean enableAutomaticLifecycleManagement = true;
 
     String apiKey;
-    String gcmSenderID;
     boolean canUseAdvertisingID = DEFAULT_CAN_USE_ADVERTISING_ID;
     boolean canUseAdvancedDeviceInformation = DEFAULT_CAN_USE_ADV_DEVICE_INFO;
 
@@ -34,7 +32,6 @@ public class BatchIntegrationConfig
         BatchIntegrationConfig config = new BatchIntegrationConfig(
                 preferences.getString(APIKEY_KEY, null)
         );
-        config.gcmSenderID = preferences.getString(GCM_SENDER_ID_KEY, null);
         config.canUseAdvertisingID = preferences.getBoolean(CAN_USE_ADVERTISING_ID_KEY, config.canUseAdvertisingID);
         config.canUseAdvancedDeviceInformation = preferences.getBoolean(CAN_USE_ADVANCED_DEVICE_INFO_KEY, config.canUseAdvancedDeviceInformation);
 
@@ -68,7 +65,6 @@ public class BatchIntegrationConfig
                 .putBoolean(CAN_USE_ADVERTISING_ID_KEY, canUseAdvertisingID)
                 .putBoolean(CAN_USE_ADVANCED_DEVICE_INFO_KEY, canUseAdvancedDeviceInformation)
                 .putString(APIKEY_KEY, apiKey)
-                .putString(GCM_SENDER_ID_KEY, gcmSenderID)
                 .apply();
     }
 }

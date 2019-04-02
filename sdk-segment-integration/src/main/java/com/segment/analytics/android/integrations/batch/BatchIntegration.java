@@ -56,7 +56,6 @@ public class BatchIntegration extends Integration
 
                 config.canUseAdvertisingID = settings.getBoolean(BatchIntegrationConfig.CAN_USE_ADVERTISING_ID_KEY, BatchIntegrationConfig.DEFAULT_CAN_USE_ADVERTISING_ID);
                 config.canUseAdvancedDeviceInformation = settings.getBoolean(BatchIntegrationConfig.CAN_USE_ADVANCED_DEVICE_INFO_KEY, BatchIntegrationConfig.DEFAULT_CAN_USE_ADV_DEVICE_INFO);
-                config.gcmSenderID = settings.getString(BatchIntegrationConfig.GCM_SENDER_ID_KEY);
 
                 config.save(appContext);
                 setupBatch(config);
@@ -100,11 +99,6 @@ public class BatchIntegration extends Integration
         Config config = new Config(integrationConfig.apiKey);
         config.setCanUseAdvertisingID(integrationConfig.canUseAdvertisingID);
         config.setCanUseAdvancedDeviceInformation(integrationConfig.canUseAdvancedDeviceInformation);
-
-        if (!TextUtils.isEmpty(integrationConfig.gcmSenderID))
-        {
-            Batch.Push.setGCMSenderId(integrationConfig.gcmSenderID);
-        }
 
         Batch.setConfig(config);
         didSetBatchConfig = true;
