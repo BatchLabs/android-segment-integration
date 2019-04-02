@@ -54,14 +54,13 @@ This will let your code fully control the configuration of the SDK, and calling 
 
 ## Optional dependencies
 
-This library does not strictly require Google's Play Services to work, but they're recommended. If you don't add the gms libraries, notifications will not work.  
+This library does not strictly require Firebase to work, but they're recommended. If you don't add the firebase libraries, notifications will not work.  
 
-We recommend you add the following to your build.gradle (version 10.2.4 is not strictly required, newer versions are compatible):  
+We recommend you add the following to your build.gradle (version 12.0.1 is not strictly required, newer versions are compatible):  
 
 ```
-compile 'com.google.android.gms:play-services-base:10.2.4'
-compile 'com.google.android.gms:play-services-gcm:10.2.4'
-compile 'com.google.android.gms:play-services-ads:10.2.4'
+implementation "com.google.firebase:firebase-core:12.0.1"
+implementation "com.google.firebase:firebase-messaging:12.0.1"
 ```
 
 ## Modifying this library
