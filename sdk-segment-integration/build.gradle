@@ -30,7 +30,6 @@ dependencies {
     })
 
     compileOnly "com.segment.analytics.android:analytics:$segmentAnalyticsVersion"
-    compileOnly "com.segment.analytics.android:analytics-tests:$segmentAnalyticsVersion"
 
     api 'com.batch.android:batch-sdk:1.13.0'
     compileOnly 'com.google.android.gms:play-services-base:10.2.4'
@@ -38,12 +37,14 @@ dependencies {
     compileOnly 'com.google.android.gms:play-services-ads:10.2.4'
 
     testImplementation 'junit:junit:4.12'
+    testImplementation 'com.android.support:support-v4:28.0.0'
     testImplementation "org.robolectric:robolectric:3.3.2"
     testImplementation "org.powermock:powermock:$powerMockVersion"
     testImplementation "org.powermock:powermock-module-junit4:$powerMockVersion"
     testImplementation "org.powermock:powermock-module-junit4-rule:$powerMockVersion"
     testImplementation "org.powermock:powermock-api-mockito:$powerMockVersion"
     testImplementation "org.powermock:powermock-classloading-xstream:$powerMockVersion"
+    testImplementation "com.segment.analytics.android:analytics-tests:$segmentAnalyticsVersion"
 }
 
 apply from: 'maven.gradle'
