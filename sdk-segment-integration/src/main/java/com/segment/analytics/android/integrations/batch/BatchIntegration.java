@@ -28,7 +28,7 @@ public class BatchIntegration extends Integration
 
     private static final String LOGGER_TAG = "BatchSegmentIntegration";
 
-    private static final String PLUGIN_VERSION = "Segment/1.0";
+    private static final String PLUGIN_VERSION = "Segment/2.0";
 
     private static boolean didSetBatchConfig = false;
 
