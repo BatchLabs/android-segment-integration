@@ -115,20 +115,17 @@ public class BatchIntegrationTest
     {
         preferences.edit().clear().commit();
 
-        final String FAKE_GCM_ID = "886025556782";
         final String FAKE_API_KEY = "12345-ABCD";
 
         ValueMap settings = new ValueMap()
                 .putValue(BatchIntegrationConfig.CAN_USE_ADVANCED_DEVICE_INFO_KEY, true)
                 .putValue(BatchIntegrationConfig.CAN_USE_ADVERTISING_ID_KEY, false)
-                .putValue(BatchIntegrationConfig.GCM_SENDER_ID_KEY, FAKE_GCM_ID)
                 .putValue(BatchIntegrationConfig.APIKEY_KEY, FAKE_API_KEY);
 
         BatchIntegration.getFactory(context).create(settings, analytics);
 
         // Check preferences to see if it contains the data
         assertThat(preferences.getString(BatchIntegrationConfig.APIKEY_KEY, "")).isEqualTo(FAKE_API_KEY);
-        assertThat(preferences.getString(BatchIntegrationConfig.GCM_SENDER_ID_KEY, "")).isEqualTo(FAKE_GCM_ID);
         assertThat(preferences.getBoolean(BatchIntegrationConfig.CAN_USE_ADVANCED_DEVICE_INFO_KEY, false)).isTrue();
         assertThat(preferences.getBoolean(BatchIntegrationConfig.CAN_USE_ADVERTISING_ID_KEY, true)).isFalse();
     }
@@ -144,7 +141,7 @@ public class BatchIntegrationTest
         PowerMockito.verifyStatic(Mockito.times(1));
 
         // Check that trackEvent was called
-        Batch.User.trackEvent("MY_EVENT", null, null);
+        Batch.User.trackEvent("MY_EVENT", null, (JSONObject)null);
     }
 
     @Test
@@ -158,7 +155,7 @@ public class BatchIntegrationTest
         PowerMockito.verifyStatic(Mockito.times(1));
 
         // Check that trackEvent was called
-        Batch.User.trackEvent("TEST_EVENT_TOO_LONG_AAAAAAAAAA", null, null);
+        Batch.User.trackEvent("TEST_EVENT_TOO_LONG_AAAAAAAAAA", null, (JSONObject)null);
     }
 
     @Test
