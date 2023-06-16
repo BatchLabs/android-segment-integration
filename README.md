@@ -1,6 +1,12 @@
 analytics-android-integration-batch
 ======================================
 
+# Deprecation notice
+
+This integraion has been deprecated and does not work with recent Segment SDKs. Please contact us for more info on how to connect Segment and Batch depending on your usecase.
+
+======================================
+
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.batch.android/sdk-segment-integration/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.batch.android/sdk-segment-integration)
 
 Batch.com integration for [analytics-android](https://github.com/segmentio/analytics-android).
